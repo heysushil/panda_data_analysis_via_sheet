@@ -77,4 +77,23 @@ replace_values = df.fillna(
 )
 print('\n\nReplace non-int values using fillna() method:\n\n', replace_values,'\n')
 
+# ffill & bfill: use to fill the nan value with rows privious value or with rows next value.
+# ffill: use to fill the nan values with the same columns privous value. Like on row 2 fname is nan and you applied ffill then the nan filled with 1st rows fname which is in this case is rahul.
+# ffill: it works on stirng values and where found special char will show the same like have age column which holds int value so on many rows show -
+# bfill: use to fill the columns nan value with next rows same column value like row 2nd fname is nan and applied bfill then the nan value fill with row 3rd dipanshu
+# bfill: also work like ffill will replace the nan with stirng values and where found special char then will show - same like age column -
+print('\n\nFill nan value with privious rows value using ffill:\n\n', df.ffill(),'\n')
+print('\n\nFill nan value with next rows value using bfill:\n\n', df.bfill(),'\n')
+# fillna(): mehtod: in this pass ffill or bfill as argumnet also when second agrument axis pass with columns then it will show the NaN on empty palce. In ffill or bfill not fillter nan value direclty only replace with previous or next value.
+print('\n\nFill nan value with privious rows value using fillna:\n\n', df.fillna(method='bfill', axis='columns'),'\n')
+print('\n\nFill nan value with privious rows value using fillna:\n\n', df.fillna(value='Sushil',axis='columns'),'\n')
 
+# interplolate(): use to fill the missing values but this is a powerfull and important method which use to fill the missing values.Also ffill(), bfill() or fillna() methods have limitation to fill only manually any value or fill the nan value with previous or next values. but interpolate() method do different then these things thats why its important mehtod and powerfull.
+# Like there is a multiple cases which need to talk here:
+# 1. interplolate() method it self have multiple methods which use to fill the missing values. So here is most importants methods are: linerar, nearest, quadratic, cubic, spline or polynomial. Pass these method insied interploate() on method argument
+# 2. interpolate() method also have multiple arrguments wihc helps to fill the missing values like: method, axix, limit, limit_direction, inplace or downcast
+print('\n\n DataFrame data:\n\n', df,'\n')
+print('\n\nInterpolation:\n\n', df.interpolate(method='linear', axis=0),'\n')
+
+
+# print('\n\n :\n\n', ,'\n')
